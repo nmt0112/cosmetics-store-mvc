@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C25BC182-5777-4A51-BCD6-3013CD6918A1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyPhamStore</RootNamespace>
+    <AssemblyName>MyPhamStore</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44323</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MyPhamsController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyPhamController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRole.cs" />
+    <Compile Include="Models\AspNetUser.cs" />
+    <Compile Include="Models\AspNetUserClaim.cs" />
+    <Compile Include="Models\AspNetUserLogin.cs" />
+    <Compile Include="Models\AspNetUserRole.cs" />
+    <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs" />
+    <Compile Include="Models\HomeModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MyPham.cs" />
+    <Compile Include="Models\MyPhamModelContext.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\UserRoleContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\style_admin.css" />
+    <Content Include="assets\images\admin-logo.png" />
+    <Content Include="assets\images\andriyko-podilnyk-F4AMM1293ag-unsplash.jpg" />
+    <Content Include="assets\images\appstore.png" />
+    <Content Include="assets\images\bannerdep.jpg" />
+    <Content Include="assets\images\banner_menu_1.jpg" />
+    <Content Include="assets\images\bi_kip_trang_diem.jpg" />
+    <Content Include="assets\images\chplay.png" />
+    <Content Include="assets\images\Clinique.png" />
+    <Content Include="assets\images\co_my.png" />
+    <Content Include="assets\images\dove.webp" />
+    <Content Include="assets\images\dungdichbosonmongtay.jpg" />
+    <Content Include="assets\images\Estee-Lauder.png" />
+    <Content Include="assets\images\favicon.png" />
+    <Content Include="assets\images\google.jpg" />
+    <Content Include="assets\images\gucci_bloom_acua.jpg" />
+    <Content Include="assets\images\gucci_by_gucci_5ml.jpeg" />
+    <Content Include="assets\images\icon_admin.png" />
+    <Content Include="assets\images\img_tintuc1.jpg" />
+    <Content Include="assets\images\img_tintuc2.jpg" />
+    <Content Include="assets\images\img_tintuc3.jpg" />
+    <Content Include="assets\images\img_tintuc4.jpg" />
+    <Content Include="assets\images\kemchongnangaha.jpg" />
+    <Content Include="assets\images\kemlotBurberryFeshGlow.jpg" />
+    <Content Include="assets\images\kem_chong_nang.png" />
+    <Content Include="assets\images\kem_duong_am_Clinique.webp" />
+    <Content Include="assets\images\kem_duong_am_Clinique_for_men_100ml.png" />
+    <Content Include="assets\images\kem_duong_am_Cliniue.webp" />
+    <Content Include="assets\images\kem_duong_da_OLAY.png" />
+    <Content Include="assets\images\kem_duong_mat_sk2.png" />
+    <Content Include="assets\images\la-co-viet-nam.png" />
+    <Content Include="assets\images\lan_nach_versace.jpg" />
+    <Content Include="assets\images\login_banner.svg" />
+    <Content Include="assets\images\logo-gucci.png" />
+    <Content Include="assets\images\logo-versace.png" />
+    <Content Include="assets\images\Logo.PNG" />
+    <Content Include="assets\images\logodep.jpg" />
+    <Content Include="assets\images\maybelline.jpg" />
+    <Content Include="assets\images\mega-1-image-1.jpg" />
+    <Content Include="assets\images\mega-1-image-2.jpg" />
+    <Content Include="assets\images\mega-1-image-3.jpg" />
+    <Content Include="assets\images\mua1tang1.jpg" />
+    <Content Include="assets\images\my-pham-loreal.webp" />
+    <Content Include="assets\images\no-cart.png" />
+    <Content Include="assets\images\nuochoaCHloe.jpg" />
+    <Content Include="assets\images\nuochoaYvesSaint.jpg" />
+    <Content Include="assets\images\nuoc_hoa_Gucci_Pour_Homme_5ml.jpg" />
+    <Content Include="assets\images\nuoc_hoa_versace_eros_flame_eau_de_parfum_5ml.jpg" />
+    <Content Include="assets\images\nuoc_hoa_versace_man_eau_Fraiche.jpg" />
+    <Content Include="assets\images\nuoc_hoa_versace_pink.jpg" />
+    <Content Include="assets\images\nuoc_hoa_Versace_yellow_diamond.png" />
+    <Content Include="assets\images\olay.jpg" />
+    <Content Include="assets\images\pexels-beatrice-cornejo-3989775.jpg" />
+    <Content Include="assets\images\pexels-kinkate-208052.jpg" />
+    <Content Include="assets\images\product1.jpg" />
+    <Content Include="assets\images\product1.png" />
+    <Content Include="assets\images\product2.jpg" />
+    <Content Include="assets\images\product3.jpg" />
+    <Content Include="assets\images\qrcode.png" />
+    <Content Include="assets\images\revlon.jpg" />
+    <Content Include="assets\images\sap_tay_trang_Cliniue.png" />
+    <Content Include="assets\images\serum_duong_da_Olay_regenerist_50ml.png" />
+    <Content Include="assets\images\sk2.jpg" />
+    <Content Include="assets\images\sk2.png" />
+    <Content Include="assets\images\son-mac.gif" />
+    <Content Include="assets\images\son_gucci_2020.jpg" />
+    <Content Include="assets\images\son_gucci_gold.jpg" />
+    <Content Include="assets\images\son_gucci_rouge.jpg" />
+    <Content Include="assets\images\son_mac_407.png" />
+    <Content Include="assets\images\son_MAC_Chili.jpg" />
+    <Content Include="assets\images\son_Mac_Retro.jpg" />
+    <Content Include="assets\images\son_revion.jpg" />
+    <Content Include="assets\images\sua_tam_eros_versace.jpg" />
+    <Content Include="assets\images\tintuc2_chanmaycanhcung.jpg" />
+    <Content Include="assets\images\tintuc2_chanmaythai.jpg" />
+    <Content Include="assets\images\tintuc2_dangmayngang.jpg" />
+    <Content Include="assets\images\tintuc2_longmaytrangnon.jpg" />
+    <Content Include="assets\images\tintuc2_maylalieu.jpg" />
+    <Content Include="assets\images\tintuc3_img1.jpg" />
+    <Content Include="assets\images\tintuc3_img2.jpg" />
+    <Content Include="assets\images\tintuc3_img3.jpg" />
+    <Content Include="assets\images\tintuc4_img1.jpg" />
+    <Content Include="assets\images\tintuc_2_longmaymac.jpg" />
+    <Content Include="assets\images\tintuc_sua_chua.jpg" />
+    <Content Include="assets\images\tintuc_tri_nam_latiato.jpg" />
+    <Content Include="assets\images\tintuc_tri_nam_latrau0.jpg" />
+    <Content Include="assets\images\tintuc_tri_nam_nhadam.jpg" />
+    <Content Include="assets\images\tintuc__tri_nam_matong.jpg" />
+    <Content Include="assets\images\user_img.jpg" />
+    <Content Include="assets\images\xit_khoang_gucci.jpg" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\assets\ajax-loader.gif" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\assets\owl.carousel.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\assets\owl.carousel.min.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\assets\owl.theme.default.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\assets\owl.theme.default.min.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\assets\owl.theme.green.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\assets\owl.theme.green.min.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\assets\owl.video.play.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\owl.carousel.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\owl.carousel.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\css\animate.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\css\docs.theme.min.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\bird_blue_32.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\download.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\feature-drag.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\feature-modern.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\feature-module.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\feature-options.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\feature-responsive.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\feature-zombie.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\owl-logo.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\img\twitter_25.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\js\app.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\js\foundation.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\owl.carousel.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\owl.carousel.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\vendors\foundation.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\vendors\highlight.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\vendors\jquery.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\vendors\jquery.mousewheel.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\animate.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\autoheight.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\autoplay.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\autowidth.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\basic.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\center.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\demos.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\events.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\lazyLoad.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\merge.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\mousewheel.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\responsive.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\rtl.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\stagepadding.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\test.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\urlhashnav.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\demos\video.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\api-classes.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\api-events.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\api-options.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\dev-buildin-plugins.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\dev-external.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\dev-plugin-api.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\dev-styles.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\started-faq.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\started-installation.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\started-welcome.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\support-changelog.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\support-contact.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\docs\support-contributing.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\index.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\css\animate.css" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\bird_blue_32.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\download.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\feature-drag.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\feature-modern.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\feature-module.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\feature-options.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\feature-responsive.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\feature-zombie.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\owl-logo.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\img\twitter_25.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\js\app.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\js\foundation.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\vendors\foundation.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\vendors\highlight.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\vendors\jquery.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\vendors\jquery.mousewheel.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\helpers\modulo.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\helpers\test.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\Gruntfile.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\img\ajax-loader.gif" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\img\owl.video.play.png" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.animate.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.autoheight.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.autoplay.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.autorefresh.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.carousel.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.hash.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.lazyload.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.navigation.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.support.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.support.modernizr.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\owl.video.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\test\index.html" />
+    <Content Include="assets\OwlCarousel2-2.3.4\test\unit\autoplay.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\test\unit\core.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ImageProducts\Brand\Estee-Lauder.png" />
+    <Content Include="Content\ImageProducts\Brand\logo-gucci.png" />
+    <Content Include="Content\ImageProducts\Brand\logo-versace.png" />
+    <Content Include="Content\ImageProducts\Brand\maybelline.jpg" />
+    <Content Include="Content\ImageProducts\Brand\olay.jpg" />
+    <Content Include="Content\ImageProducts\Brand\revlon.jpg" />
+    <Content Include="Content\ImageProducts\Brand\sk2.jpg" />
+    <Content Include="Content\ImageProducts\MyPham\xit_khoang_gucci.jpg" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="assets\OwlCarousel2-2.3.4\.gitattributes" />
+    <Content Include="assets\OwlCarousel2-2.3.4\.gitignore" />
+    <Content Include="assets\OwlCarousel2-2.3.4\.travis.yml" />
+    <Content Include="assets\OwlCarousel2-2.3.4\bower.json" />
+    <Content Include="assets\OwlCarousel2-2.3.4\CONTRIBUTING.md" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\LICENSE" />
+    <Content Include="assets\OwlCarousel2-2.3.4\dist\README.md" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\owlcarousel\README.md" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs\assets\vendors\jquery.min.map" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\scss\custom.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\scss\demos.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.theme.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\scss\highlight.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\scss\_settings.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\assets\vendors\jquery.min.map" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\data\classes.json" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\data\events.json" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\data\features.json" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\data\options.json" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\layouts\demos.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\layouts\docs.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\layouts\home.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\animate.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\autoheight.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\autoplay.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\autowidth.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\basic.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\center.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\demos.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\events.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\lazyLoad.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\merge.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\mousewheel.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\responsive.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\rtl.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\stagepadding.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\test.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\urlhashnav.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\video.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\api-classes.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\api-events.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\api-options.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\dev-buildin-plugins.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\dev-external.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\dev-plugin-api.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\dev-styles.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\started-faq.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\started-installation.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\started-welcome.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\support-changelog.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\support-contact.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\support-contributing.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\pages\index.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\footer.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\head.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\header.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\home-carousel.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\home-features.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\home-hero.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\home-teaser-text.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\javascripts.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\releated-docs.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\sidenav-docs.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\title.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\docs_src\templates\partials\vendors.hbs" />
+    <Content Include="assets\OwlCarousel2-2.3.4\ISSUE_TEMPLATE.md" />
+    <Content Include="assets\OwlCarousel2-2.3.4\LICENSE" />
+    <Content Include="assets\OwlCarousel2-2.3.4\package-lock.json" />
+    <Content Include="assets\OwlCarousel2-2.3.4\package.json" />
+    <Content Include="assets\OwlCarousel2-2.3.4\README.md" />
+    <Content Include="assets\OwlCarousel2-2.3.4\ROADMAP.md" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\.jscsrc" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\js\.jshintrc" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\owl.carousel.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\owl.theme.default.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\owl.theme.green.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\_animate.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\_autoheight.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\_core.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\_lazyload.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\_theme.default.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\_theme.green.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\_theme.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\src\scss\_video.scss" />
+    <Content Include="assets\OwlCarousel2-2.3.4\_config.json" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MyPhams\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MyPhams\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MyPhams\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\MyPhams\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MyPhams\Index.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\MyPham\Index.cshtml" />
+    <Content Include="Views\MyPham\GetCategory.cshtml" />
+    <Content Include="Views\MyPham\GetBrand.cshtml" />
+    <Content Include="Views\MyPham\Details.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\CartSummary.cshtml" />
+    <Content Include="Views\ShoppingCart\ConfirmOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49715</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44323/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

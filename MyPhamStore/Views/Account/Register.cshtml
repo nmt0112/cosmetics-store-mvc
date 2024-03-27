@@ -1,0 +1,65 @@
+﻿@model MyPhamStore.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Đăng Ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="row body-content w-100">
+        <div class="col-md-6 d-flex justify-content-center bg-info h-100">
+            <img src="~/assets/images/login_banner.svg" width="400px" alt="">
+        </div>
+
+        <div class="col-md-6 p-5 mt-5">
+            <div class="text-center" style="max-width: 550px;">
+                <h4 style="margin-top: 100px">EMBODY - Đăng ký</h4>
+                <p>Xin chào, vui lòng nhập thông tin đăng ký</p>
+                <hr />
+                <div>
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                        <input class="form-control my-3 p-2" data-val="true"
+                               data-val-required="The UserName field is required." id="UserName" name="UserName" type="text" placeholder="Tên đăng nhập">
+
+                        <input class="form-control my-3 p-2" data-val="true"
+                               data-val-required="The Password field is required." id="Password" name="Password" type="password" placeholder="Mật khẩu">
+
+                        <input class="form-control my-3 p-2" data-val="true"
+                               data-val-required="The UserName field is required." id="ConfirmPassword" name="ConfirmPassword" type="password" placeholder="Nhập lại mật khẩu">
+
+                        <input class="form-control my-3 p-2" data-val="true"
+                               data-val-required="The Password field is required." id="Email" name="Email" type="text" placeholder="Email">
+
+
+                        <p style="color: #ccc;">
+                            Nhấn vào nút "Đăng ký", đồng nghĩa với việc bạn đồng ý với <a href="">Chính sách bảo mật</a> và <a href="">Các điều khoản dịch vụ</a> của EMBODY
+                        </p>
+
+                        <input type="submit" class="btn btn-primary w-100" value="Đăng Ký" />
+                    }
+                    <div class="mt-5">
+                        <p style="color: #ccc;">Bạn đã có tài khoản EMBODY? <a href="/Account/Login">Đăng nhập</a></p>
+                        <div class="mb-2">
+                            <a href="/Home/Index">Quay lại trang chủ</a>
+                        </div>
+                        <div class="row m-1">
+                            <div class="" style="cursor: pointer;">
+                                <span>
+                                    <img src="~/assets/images/la-co-viet-nam.png" width="25" alt=""> Tiếng Việt
+                                </span>
+                            </div>
+
+                            <div class="ml-3" style="cursor: pointer;">
+                                <span>
+                                    <img src="~/assets/images/co_my.png" width="25" alt=""> English
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

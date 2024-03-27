@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="shortcut icon" type="image/png" href="~/assets/img/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/assets/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-md-2 p-0 border-right bg-dark">
+                <div class="text-center my-3 pb-3 border-bottom">
+                    <a href="/Home/Index">
+                        <img src="~/assets/images/logodep.jpg" width="250px" alt="">
+                    </a>
+                </div>
+                <nav class="">
+                    <ul class="navbar-nav">
+                        <li class="nav-item item__lv-1"><a class="nav-link ml-5 py-3 text-white" href="/Admin/Brand/Index"><i class="fas fa-dollar-sign"></i>Quản Lý Thương Hiệu</a></li>
+                        <li class="nav-item item__lv-1"><a class="nav-link ml-5 py-3 text-white" href="/Admin/Category/Index"><i class="fab fa-product-hunt"></i> Quản Lý Thể Loại</a></li>
+                        <li class="nav-item item__lv-1"><a class="nav-link ml-5 py-3 text-white" href="/Admin/MyPhams/Index"><i class="fas fa-user"></i> Quản Lý Sản Phẩm</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-10 p-0">
+                <div class="row m-0 border-bottom header">
+                    <div class="col-md-6">
+                        <h3>TRANG QUẢN TRỊ VIÊN</h3>
+                    </div>
+                    <div class="col-md-6 p-0">
+                        <div class="d-flex container align-items-center justify-content-between">
+                            <div class="row">
+                                <div class="row justify-content-center" style="margin-right: 50px;">
+                                    <div class="search p-3 col-md-4 position-relative">
+                                        <i class="fas fa-search icon-search" style="float: right 100px"></i>
+                                        <div class="position-absolute input-search">
+                                            <form action="">
+                                                <input class="form-control" type="text" placeholder="Nhập từ khóa tìm kiếm">
+                                            </form>
+                                        </div>
+                                    </div>
+                                    @Html.Partial("_LoginPartial")
+                                    <div class="bag p-3 col-md-4 position-relative">
+                                        <i class="fas fa-shopping-bag icon-bag"><sup>0</sup></i>
+                                        <div class="no_card position-absolute">
+                                            <figure class="border border">
+                                                <img src="~/assets/images/no-cart.png" alt="">
+                                                <figcaption class="text-center bg-white p-2">Chưa có sản phẩm</figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

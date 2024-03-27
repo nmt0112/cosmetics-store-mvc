@@ -1,0 +1,249 @@
+﻿@*@model IEnumerable<MyPhamStore.Models.MyPham>*@
+@using PagedList.Mvc;
+@model PagedList.IPagedList<MyPhamStore.Models.MyPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<div class="container-fluid p-3" style="margin-top: 102px;background-color: #f0f0f0;">
+    <div class="container">
+        <h5 class=""><a href="/Home/Index">Trang chủ</a> / Tất cả sản phẩm</h5>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        @*/////////////////////////////////////////*@
+        <div class="col-md-3">
+            <h3>Danh mục</h3>
+            @*<nav class="subnav">
+                    <ul class="navbar-nav">
+                        <li class="pl-3 nav-item row">
+                            <a class="nav-link text-dark col-md-10" href="">Thể Loại Sản Phẩm</a>
+                            <div class="w-25 p-2 col-md-2 btn-toggle-lv1">
+                                <i class="fas fa-angle-right fa float-right"></i>
+                            </div>
+                            @Html.Action("GetCategory", "MyPham")
+                        </li>
+                    </ul>
+                </nav>*@
+            <nav class="subnav">
+                <ul class="navbar-nav">
+                    <li class="pl-3 nav-item row">
+                        <a class="nav-link text-dark col-md-10" href="/MyPham/Index">Thể Loại Sản Phẩm</a>
+                        <div class="w-25 p-2 col-md-2 btn-toggle-lv1">
+                            <i class="fas fa-angle-right fa float-right" id="toggle-category"></i>
+                        </div>
+                    </li>
+                    <div id="category"></div>
+                </ul>
+            </nav>
+            <script type="text/javascript">
+                var toggleCategory = document.getElementById("toggle-category");
+                toggleCategory.addEventListener("click", function () {
+                    var categoryDiv = document.getElementById("category");
+                    if (categoryDiv.innerHTML.trim() == "") {
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                categoryDiv.innerHTML = this.responseText;
+                            }
+                        };
+                        xhr.open("GET", "/MyPham/GetCategory", true);
+                        xhr.send();
+                    } else {
+                        categoryDiv.innerHTML = "";
+                    }
+                });
+            </script>
+
+            <h3>Thương hiệu</h3>
+            <nav class="subnav">
+                <ul class="navbar-nav">
+                    <li class="pl-3 nav-item row">
+                        <a class="nav-link text-dark col-md-10" href="/MyPham/Index">Danh Sách Thương Hiệu</a>
+                        <div class="w-25 p-2 col-md-2 btn-toggle-lv1">
+                            <i class="fas fa-angle-right fa float-right" id="toggle-brand"></i>
+                        </div>
+                    </li>
+                    <div id="brand"></div>
+                </ul>
+            </nav>
+            <script type="text/javascript">
+                var toggleBrand = document.getElementById("toggle-brand");
+                toggleBrand.addEventListener("click", function () {
+                    var brandDiv = document.getElementById("brand");
+                    if (brandDiv.innerHTML.trim() == "") {
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                brandDiv.innerHTML = this.responseText;
+                            }
+                        };
+                        xhr.open("GET", "/MyPham/GetBrand", true);
+                        xhr.send();
+                    } else {
+                        brandDiv.innerHTML = "";
+                    }
+                });
+            </script>
+
+            <h3 class="mt-2">Sản phẩm nổi bật</h3>
+            <nav>
+                <ul class="navbar-nav">
+                    @foreach (var item in Model)
+                    {
+                        <li class="nav-item border-bottom">
+                            <a class="nav-link" href="/MyPham/Details/@item.Id">
+                                <div class="d-flex">
+                                    <div class="">
+                                        <img class="img-item" src="~/Content/ImageProducts/MyPham/@item.Image" alt="">
+                                    </div>
+                                    <div class="">
+                                        <h6 class="name-item">@item.Name</h6>
+
+                                        <p class="new_price" id="product-price-@item.Id"></p>
+                                        <script>
+                                        var price = @item.Price;
+                                        document.getElementById("product-price-@item.Id").innerHTML = formatPrice(price) + ' VNĐ';
+
+                                        function formatPrice(price) {
+                                            return parseFloat(price).toLocaleString('vi-VN');
+                                        }
+                                        </script>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+                <a href="" class="text-dark">Xem thêm <i class="fas fa-angle-right fa"></i></a>
+            </nav>
+        </div>
+        @*/////////////////////////////////////////*@
+    <div class="col-md-9">
+        <div class="row d-flex" style="justify-content: space-between;">
+            <div class="col-md-4"><h3>Tất cả sản phẩm</h3></div>
+        </div>
+
+        <div class="card-deck mt-3" style="margin-right: -15px; margin-left: 5px">
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="col-md-4 product card" style="max-width: 85.333333%; padding-right: 10px; padding-left: 10px; ">
+                        <a href="/MyPham/Details/@item.Id">
+                            <img class="product__img" src="~/Content/ImageProducts/MyPham/@item.Image" alt="">
+                        </a>
+                        <h6 class="product__name">@item.Name</h6>
+
+                        <div class="product__price">
+                            <p class="new_price" id="product-price1-@item.Id">s</p>
+                            <script>
+                                        var price = @item.Price;
+                                        document.getElementById("product-price1-@item.Id").innerHTML = formatPrice(price) + ' VNĐ';
+
+                                        function formatPrice(price) {
+                                            return parseFloat(price).toLocaleString('vi-VN');
+                                        }
+                            </script>
+                        </div>
+
+                        @Html.ActionLink("Thêm vào giỏ hàng", "AddToCart", "ShoppingCart", new
+                            {
+                                id = item.Id
+                            }, new { @class = "btn btn-success mt-3" })
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="pagination">
+            <div class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions()
+                {
+                    DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+                    DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded,
+                    DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                    DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                    LinkToFirstPageFormat = "<<",
+                    LinkToPreviousPageFormat = "<",
+                    LinkToNextPageFormat = ">",
+                    LinkToLastPageFormat = ">>",
+                    MaximumPageNumbersToDisplay = 5,
+                    DisplayEllipsesWhenNotShowingAllPageNumbers = true,
+                    EllipsesFormat = "...",
+                    DisplayLinkToIndividualPages = true,
+                    PageCountAndCurrentLocationFormat = "Page <strong>{0}</strong> of <strong>{1}</strong>.",
+                    ItemSliceAndTotalFormat = "Showing items <strong>{0}</strong> to <strong>{1}</strong> of <strong>{2}</strong> total items."
+                })
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<script>
+    function add_li_hover(x) {
+        $(x).addClass("nav-item__after");
+    }
+
+    function remove_li_hover(x) {
+        $(x).removeClass("nav-item__after");
+    }
+    $('.menu-lv1').hide();
+    $('.menu-lv2_0').hide();
+    $('.menu-lv2_1').hide();
+    $('.menu-lv2_2').hide();
+    $('.menu-lv2_3').hide();
+    $('.menu-lv2_4').hide();
+    $('.menu-lv2_5').hide();
+    $('.menu-lv2_6').hide();
+    $('.menu-lv2_7').hide();
+    $(document).ready(function ($) {
+        $('.counter-value').counterUp({
+            delay: 10,
+            time: 1000
+        });
+        $('.btn-toggle-lv1').click(function () {
+            $('.menu-lv1').toggle();
+        })
+
+        $('.btn-toggle-lv-2_0').click(function () {
+            $('.menu-lv2_0').toggle();
+        })
+
+        $('.btn-toggle-lv-2_1').click(function () {
+            $('.menu-lv2_1').toggle();
+        })
+
+        $('.btn-toggle-lv-2_2').click(function () {
+            $('.menu-lv2_2').toggle();
+        })
+
+        $('.btn-toggle-lv-2_3').click(function () {
+            $('.menu-lv2_3').toggle();
+        })
+
+        $('.btn-toggle-lv-2_4').click(function () {
+            $('.menu-lv2_4').toggle();
+        })
+
+        $('.btn-toggle-lv-2_5').click(function () {
+            $('.menu-lv2_5').toggle();
+        })
+
+        $('.btn-toggle-lv-2_6').click(function () {
+            $('.menu-lv2_6').toggle();
+        })
+
+        $('.btn-toggle-lv-2_7').click(function () {
+            $('.menu-lv2_7').toggle();
+        })
+    });
+</script>

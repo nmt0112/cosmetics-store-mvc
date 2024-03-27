@@ -1,0 +1,120 @@
+﻿@model MyPhamStore.Models.MyPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid p-3" style="margin-top: 102px;background-color: #f0f0f0;">
+    <div class="container">
+        <h5 class=""><a href="index.html">Trang chủ</a> / <a href="/MyPham/Index">sản phẩm</a> / <span style="color: red;">@Model.Name</h5>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="border border-danger" src="~/Content/ImageProducts/MyPham/@Model.Image" width="550" height="550" alt="">
+        </div>
+
+        <div class="col-md-6">
+            <h1>@Model.Name</h1>
+            <p>Thương hiệu: <span style="color: red;"> @Model.Brand.BrandName</span> | Tình trạng: <span style="color: red;"> Còn hàng</span></p>
+            @*<h1 class="text-danger">@Model.Price</h1>*@
+            <h1 class="text-danger">
+                <p class="new_price" id="product-price-@Model.Id"></p>
+                <script>
+                                var price = @Model.Price;
+                                document.getElementById("product-price-@Model.Id").innerHTML = formatPrice(price) + ' VNĐ';
+
+                                function formatPrice(price) {
+                                    return parseFloat(price).toLocaleString('vi-VN');
+                                }
+                </script>
+            </h1>
+
+            <div>
+                <p><span class="font-weight-bold">-Thương hiệu:</span> @Model.Brand.BrandName</p>
+                <p><span class="font-weight-bold">-Loại sản phẩm: </span>@Model.Category.CategoryName</p>
+            </div>
+
+            <div class="row ml-1">
+                <p class="mt-2">
+                    Số lượng:
+                    <div class="ml-3 pt-2" style="border: 1px solid #ccc; border-radius: 10px;cursor: pointer;">
+                        <button class="p-3 giam">-</button> <span class="so_luong">1</span> <button class="p-3 tang">+</button>
+                    </div>
+                </p>
+            </div>
+
+            @Html.ActionLink("Thêm vào giỏ hàng", "AddToCart", "ShoppingCart", new
+                            {
+                                id = Model.Id
+                            }, new { @class = "btn btn-success mt-3" })
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h3 class="text-center">Mô tả sản phẩm</h3>
+        <div class="">
+            <p>
+                <br />
+                @Model.MoTa
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    function tang() {
+        var x = $(".so_luong").text();
+        x++;
+        $(".so_luong").text(x);
+    }
+
+    function giam() {
+        var x = $(".so_luong").text();
+        if (x > 1) {
+            x--;
+            $(".so_luong").text(x);
+        }
+    }
+
+    function add_li_hover(x) {
+        $(x).addClass("nav-item__after");
+    }
+
+    function remove_li_hover(x) {
+        $(x).removeClass("nav-item__after");
+    }
+
+    function hide() {
+        $(".mega-content").addClass("d-none");
+    }
+
+    function show() {
+        $(".mega-content").removeClass("d-none");
+    }
+
+    $(".tang").click(tang);
+    $(".giam").click(giam);
+
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        items: 4,
+        loop: true,
+        margin: 10,
+    });
+</script>

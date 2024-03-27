@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MyPhamStore.Models.Category>
+<style>
+    ul li {
+        list-style: none; /* loại bỏ chấm đầu dòng của li */
+    }
+
+        ul li a {
+            color: black; /* đặt màu chữ là màu đen */
+            text-decoration: none; /* loại bỏ đường gạch chân */
+            margin-left: 0; /* loại bỏ khoảng trắng ở đầu mỗi liên kết */
+        }
+</style>
+<ul>
+    @foreach(var item in Model)
+    {
+        <li>@Html.ActionLink(item.CategoryName + "(" + item.MyPhams.Count().ToString() + ")", "GetMyPhamCategory/"+item.CategoryId, "MyPham")</li>
+    }
+
+</ul>

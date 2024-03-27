@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="shortcut icon" type="image/png" href="~/assets/img/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/assets/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="http://bfintal.github.io/Counter-Up/jquery.counterup.min.js"></script>
+
+</head>
+<body>
+    <!-- header -->
+    <header class="py-3 bg-white fixed-top border-bottom border-dark">
+        <div class="d-flex container align-items-center justify-content-between">
+            <div class="">
+                <a href="/Home/Index">
+                    <img class="header__logo" src="~/assets/images/logodep.jpg" height="70px" alt="">
+                </a>
+            </div>
+            <nav class="header__menu">
+                <ul class="nav">
+                    <li class="nav-item m-1" onmouseover="add_li_hover(this)" onmouseout="remove_li_hover(this)"><a class="nav-link text-dark" href="/Home/Index">TRANG CHỦ</a></li>
+                    <li class="nav-item m-1" onmouseover="add_li_hover(this)" onmouseout="remove_li_hover(this)"><a class="nav-link text-dark" href="/Home/About">GIỚI THIỆU</a></li>
+                    <li class="nav-item m-1" onmouseover="add_li_hover(this)" onmouseout="remove_li_hover(this)"><a class="nav-link text-dark" href="/MyPham/Index">SẢN PHẨM</a></li>
+                    <li class="nav-item m-1" onmouseover="add_li_hover(this)" onmouseout="remove_li_hover(this)"><a class="nav-link text-dark" href="/Home/Contact">LIÊN HỆ</a></li>
+                </ul>
+            </nav>
+            <div class="row">
+                <div class="search p-3 col-md-4 position-relative">
+                    <i class="fas fa-search icon-search"></i>
+                    <div class="position-absolute input-search">
+                        @using (Html.BeginForm("Search", "MyPham", FormMethod.Get))
+                        {
+                            <input class="form-control" type="text" name="searchString" placeholder="Nhập từ khóa tìm kiếm" />
+                        }
+                    </div>
+                </div>
+                @Html.Partial("_LoginPartial")
+                <div class="bag p-3 col-md-4 position-relative">
+                    <i class="fas fa-shopping-bag icon-bag"><sup>@Html.Action("CartSummary", "ShoppingCart")</sup></i>
+                    <div class="no_card position-absolute">
+                        <figure class="border border">
+                            <img src="~/assets/images/no-cart.png" alt="">
+                            <figcaption class="text-center bg-white p-2">Chưa có sản phẩm</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <!-- Footer -->
+        <footer class="bg-dark py-4">
+            <div class="container">
+                <div class="row pt-3">
+                    <div class="col-md-5">
+                        <h4 class="text-white">Fanpage</h4>
+                        <a href=""><i class="icon-facebook rounded fab fa-facebook"></i></a>
+                        <a href=""><i class="icon-twitter rounded fab fa-twitter-square"></i></a>
+                        <a href=""><i class="icon-google-plus rounded fab fa-google-plus"></i></a>
+                        <a href=""><i class="icon-wechat rounded fab fa-weixin"></i></a>
+                    </div>
+
+                    <div class="col-md-7 rounded">
+                        <h4 class="text-white">Đăng ký nhận thông tin</h4>
+                        <p class="text-white">Hãy cho chúng tôi email của bạn và bạn sẽ được cập nhật hàng ngày với các sự kiện mới nhất, chi tiết!</p>
+                        <div class="bg-white d-flex">
+                            <input class="w-100 border-0 pl-3" type="text" placeholder="Nhập email để đăng ký">
+                            <button class="btn col-md-2" style="background-color: turquoise;">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-4">
+                <div class="row pt-3">
+                    <div class="col-md-3">
+                        <h4 class="text-white">Về chúng tôi</h4>
+                        <ul class="navbar-nav footer__menu">
+                            <li class="nav-item"><a class="nav-link text-secondary" href="#"><i class="fas fa-map-marker-alt"></i> Liêu Xá, Yên Mỹ, Hưng Yên</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="#"><i class="fas fa-phone"></i> 0368960711</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="#"><i class="fas fa-envelope"></i> tranvudai0210@gmail.com</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h4 class="text-white">Chính sách</h4>
+                        <ul class="navbar-nav footer__menu">
+                            <li class="nav-item"><a class="nav-link text-secondary" href="">Chính sách bảo mật</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="">Chính sách bảo hành</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="">Chính sách vận chuyển</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="">Chính sách đổi hàng</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="">Quy định thanh toán</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function add_li_hover(x) {
+            $(x).addClass("nav-item__after");
+        }
+
+        function remove_li_hover(x) {
+            $(x).removeClass("nav-item__after");
+        }
+
+        function hide() {
+            $(".mega-content").addClass("d-none");
+        }
+
+        function show() {
+            $(".mega-content").removeClass("d-none");
+        }
+
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+
+        });
+    </script>
+    <script>
+        function add_li_hover(x) {
+            $(x).addClass("nav-item__after");
+        }
+
+        function remove_li_hover(x) {
+            $(x).removeClass("nav-item__after");
+        }
+        $('.menu-lv1').hide();
+        $('.menu-lv2_0').hide();
+        $('.menu-lv2_1').hide();
+        $('.menu-lv2_2').hide();
+        $('.menu-lv2_3').hide();
+        $('.menu-lv2_4').hide();
+        $('.menu-lv2_5').hide();
+        $('.menu-lv2_6').hide();
+        $('.menu-lv2_7').hide();
+        $(document).ready(function ($) {
+            $('.counter-value').counterUp({
+                delay: 10,
+                time: 1000
+            });
+            $('.btn-toggle-lv1').click(function () {
+                $('.menu-lv1').toggle();
+            })
+
+            $('.btn-toggle-lv-2_0').click(function () {
+                $('.menu-lv2_0').toggle();
+            })
+
+            $('.btn-toggle-lv-2_1').click(function () {
+                $('.menu-lv2_1').toggle();
+            })
+
+            $('.btn-toggle-lv-2_2').click(function () {
+                $('.menu-lv2_2').toggle();
+            })
+
+            $('.btn-toggle-lv-2_3').click(function () {
+                $('.menu-lv2_3').toggle();
+            })
+
+            $('.btn-toggle-lv-2_4').click(function () {
+                $('.menu-lv2_4').toggle();
+            })
+
+            $('.btn-toggle-lv-2_5').click(function () {
+                $('.menu-lv2_5').toggle();
+            })
+
+            $('.btn-toggle-lv-2_6').click(function () {
+                $('.menu-lv2_6').toggle();
+            })
+
+            $('.btn-toggle-lv-2_7').click(function () {
+                $('.menu-lv2_7').toggle();
+            })
+        });
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+</body>
+</html >

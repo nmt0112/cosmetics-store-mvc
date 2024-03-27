@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNet.Identity
+@*@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}*@
+
+<div class="user p-3 col-md-4 position-relative">
+    <i class="fas fa-user icon-user"></i>
+    <div class="auth-form nav position-absolute">
+        <ul class="navbar-nav m-auto w-100">
+
+            @if (!Request.IsAuthenticated)
+            {
+                <li class="nav-item"><a class="nav-link text-dark pl-1" href="/Account/Register"><i class="icon-plus fas fa-user-plus"></i> Đăng ký</a></li>
+                <li class="nav-item"><a class="nav-link text-dark pl-1" href="/Account/Login"><i class="far fa-user-circle"></i> Đăng nhập</a></li>
+            }
+            else
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <li>Welcome: @User.Identity.GetUserName()</li>
+                    <li class="nav-item"><a class="nav-link text-dark pl-1" href="/Manage/Index"><i class="far fa-user-circle"></i>Profile</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark pl-1" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-in" aria-hidden="true"></i>Log off</a></li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+
