@@ -11,7 +11,8 @@ Here's how you can get your Cosmetics Store website up and running on your local
 Before starting, make sure you have the following software installed:
 - Visual Studio 2022
 - SQL Server 2019
-
+- Jira
+- Github
 ### 🛠️ Settings
 
 1. **Copy project:**
