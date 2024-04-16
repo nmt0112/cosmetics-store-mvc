@@ -1,9 +1,10 @@
 # 🎉 Welcome to Cosmetics Store!
 
-##Võ Huỳnh Khánh Liên
-##Hoàng Thị Ngọc Diễm
-##Nguyễn Minh Trí
-##Trần Văn Hùng
+## Võ Huỳnh Khánh Liên
+## Hoàng Thị Ngọc Diễm
+## Nguyễn Minh Trí
+## Trần Văn Hùng
+
 Online Cosmetics website is an online platform that allows users to choose the products they desire easily and conveniently. With a user-friendly interface and flexible features, this website offers a quick and convenient ordering experience.
 
 ## 🚀 Let's get started
