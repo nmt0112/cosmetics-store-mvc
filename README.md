@@ -11,6 +11,12 @@ Online Cosmetics website is an online platform that allows users to choose the p
 
 Here's how you can get your Cosmetics Store website up and running on your local machine.
 
+### 👤 Member
+1. Nguyễn Minh Trí		 	  2011061175 		
+2. Trần Văn Hùng			      2011061546	
+3. Hoàng Thị Ngọc Diễm	 	2011062496		
+4. Võ Huỳnh Khánh Liên		2011110492
+
 ### 📋 Prerequisites
 
 Before starting, make sure you have the following software installed:
@@ -19,6 +25,9 @@ Before starting, make sure you have the following software installed:
 - Git
 - Visual Studio 2022
 - SQL Server 2019
+- Jira
+- Github
+- Figma
 
 ### 🛠️ Settings
 
